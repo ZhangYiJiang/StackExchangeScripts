@@ -4,13 +4,53 @@
 	<head>
 		<title>StackExchangeScripts - Home</title>
 		
-		<link type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
 		<div id="container">
-			<h1>StackExchangeScripts.user.js</h1>
-			<p id="sub">A community maintained set of userscripts to improve the Stack Exchange sites</p>
+			<div id="header">
+				<h1><span class="w1">Stack</span><span class="w2">Exchange</span><span class="w3">Scripts</span><span class="w4">.user.js</span></h1>
+				<p id="sub">A community maintained set of userscripts to improve the Stack Exchange sites</p>
+			</div>
 			
+			<h2 id="oy">Oy.</h2>
+			<a id="more" href="#">More oy.</a>
 		</div>
+		
+		<script>
+		document.getElementById('more').addEventListener('click', function(){
+			var html = ['oy', 'oy', 'oy', 'Oy', 'Oy', 'Oy!', 'oy!', 'oy.'],
+				tag = ['span', 'span', 'span', 'span', 'span', 'strong', 'strong', 'em'],
+				colors = ['#426F9B', '#81CE39', '#333', 'orange', '#922828'], 
+				w = window.innerWidth || document.documentElement.clientWidth, 
+				h = window.innerHeight || document.documentElement.clientHeight, 
+				limit = 200, count = 0;
+			
+			function randomize(choice){
+				return choice[Math.floor(choice.length * Math.random())];
+			}
+			
+			var t = setInterval(function(){
+				if(count++ < limit){
+					var oy = document.createElement(randomize(tag));
+					
+					with(oy.style){
+						color = randomize(colors);
+						fontSize = (Math.random() * 110 + 30) + 'px';
+						position = 'fixed';
+						left = (Math.random() * (w - 40) - 40) + 'px';
+						top = (Math.random() * (h - 40) - 40) + 'px';
+						zIndex = ~~(Math.random() * 1000000) + 100000;
+					}
+				
+					oy.innerHTML = randomize(html);
+					document.body.appendChild(oy);
+				} else {
+					clearInterval(t);
+				}
+			}, 100);
+			
+		}, false);
+		</script>
 	</body>
 </html>
