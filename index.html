@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<title>StackExchangeScripts - Home</title>
-		
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 	</head>
 	<body>
@@ -13,44 +12,39 @@
 				<p id="sub">A community maintained set of userscripts to improve the Stack Exchange sites</p>
 			</div>
 			
-			<h2 id="oy">Oy.</h2>
-			<a id="more" href="#">More oy.</a>
+			<div id="homepage">
+				<ul id="nav">
+					<li><a href="#about">about</a></li><li>
+					<a href="#feature">features</a></li><li>
+					<a href="#install">install</a></li><li>
+					<a href="#contribute">contribute</a></li>
+				</ul>
+				
+				<div id="home-content">
+					<div id="about">
+						<p><strong><span class="w1">Stack</span><span class="w2">Exchange</span><span class="w3">Scripts</span></strong>
+						is a repository of userscripts created by Stack Exchange Community Manager
+						<a href="http://meta.stackoverflow.com/users/140548/rebecca-chernoff">Rebecca Chernoff</a>. It currently 
+						contains client-side userscripts that integrate useful tools and modifications to improve the Stack Exchange
+						user interface. </p>
+						<p>The repository started with a single script to improve
+						<a href="http://chat.stackexchange.com/">Stack Exchange chat</a>
+						</p>
+					</div>
+					
+					<div id="feature">
+						<h3>Stable</h3>
+						<ul>
+							<li><strong><a href="#">SEChatModification.user.js</a></strong> - Provides keyboard shortcuts and
+							other IRC-like <code>/commands</code> via input text reducing the dependency on mouse usage.
+							Keyboard navigation is also supported, and can be used select and perform actions on chat messages</li>
+							<li><strong><a href="#">SEChatFaviconNotifier.user.js</a></strong> - 
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 		
-		<script>
-		document.getElementById('more').addEventListener('click', function(){
-			var html = ['oy', 'oy', 'oy', 'Oy', 'Oy', 'Oy!', 'oy!', 'oy.'],
-				tag = ['span', 'span', 'span', 'span', 'span', 'strong', 'strong', 'em'],
-				colors = ['#426F9B', '#81CE39', '#333', 'orange', '#922828'], 
-				w = window.innerWidth || document.documentElement.clientWidth, 
-				h = window.innerHeight || document.documentElement.clientHeight, 
-				limit = 200, count = 0;
-			
-			function randomize(choice){
-				return choice[Math.floor(choice.length * Math.random())];
-			}
-			
-			var t = setInterval(function(){
-				if(count++ < limit){
-					var oy = document.createElement(randomize(tag));
-					
-					with(oy.style){
-						color = randomize(colors);
-						fontSize = (Math.random() * 110 + 30) + 'px';
-						position = 'fixed';
-						left = (Math.random() * (w - 40) - 40) + 'px';
-						top = (Math.random() * (h - 40) - 40) + 'px';
-						zIndex = ~~(Math.random() * 1000000) + 100000;
-					}
-				
-					oy.innerHTML = randomize(html);
-					document.body.appendChild(oy);
-				} else {
-					clearInterval(t);
-				}
-			}, 100);
-			
-		}, false);
-		</script>
 	</body>
 </html>
